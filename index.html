@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sueños Sobre Ruedas - Patinaje Artístico</title>
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Montserrat:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Font Awesome para Iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -172,7 +174,199 @@
             padding: 40px 30px;
             border-radius: 20px;
             transition: transform 0.3s;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.02);ht: 350px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-card i {
+            font-size: 2.5rem;
+            color: var(--pink-dark);
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* --- Carretel (Slider de Fotos) --- */
+        .gallery-section {
+            padding: 80px 5%;
+            background: linear-gradient(180deg, var(--white) 0%, var(--pink-light) 100%);
+        }
+
+        .carousel-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .carousel-slide {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 100%;
+        }
+
+        .carousel-item {
+            min-width: 100%;
+            position: relative;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+        }
+
+        .carousel-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(46, 16, 47, 0.8));
+            color: var(--white);
+            padding: 30px;
+            text-align: center;
+        }
+
+        .carousel-caption p {
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.8);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: var(--text-dark);
+            transition: background-color 0.3s;
+            z-index: 10;
+        }
+
+        .carousel-btn:hover {
+            background-color: var(--pink-primary);
+        }
+
+        .prev-btn { left: 20px; }
+        .next-btn { right: 20px; }
+
+        /* --- Info / Ubicación --- */
+        .info-section {
+            padding: 80px 5%;
+            background-color: var(--white);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .info-card {
+            max-width: 700px;
+            background: var(--pink-light);
+            padding: 40px;
+            border-radius: 30px;
+            border: 2px dashed var(--pink-dark);
+        }
+
+        .info-card i {
+            font-size: 3rem;
+            color: var(--pink-dark);
+            margin-bottom: 20px;
+        }
+
+        .info-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .info-card p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        /* --- Botón Flotante WhatsApp --- */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background-color: #128c7e;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--text-dark);
+            color: var(--white);
+            padding: 40px 5%;
+            text-align: center;
+        }
+
+        .footer-socials {
+            margin-bottom: 20px;
+        }
+
+        .footer-socials a {
+            color: var(--white);
+            font-size: 1.5rem;
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+
+        .footer-socials a:hover {
+            color: var(--pink-primary);
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 120px;
+            }
+            .hero-content {
+                margin-bottom: 50px;
+            }
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            .hero-cursive {
+                font-size: 3rem;
+            }
+            .carousel-item img {
+                height: 350px;
             }
             nav {
                 display: none;
