@@ -4,11 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sueños Sobre Ruedas - Patinaje Artístico</title>
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Montserrat:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <!-- Font Awesome para Iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -54,7 +52,7 @@
         }
 
         .logo-img {
-            height: 65px; /* Tamaño ideal para que destaque sin romper el diseño */
+            height: 65px;
             width: auto;
             object-fit: contain;
         }
@@ -183,7 +181,7 @@
             font-family: 'Playfair Display', serif;
         }
 
-        /* --- Carretel (Slider de Fotos) --- */
+        /* --- Carretel (Slider de Fotos y Videos) --- */
         .gallery-section {
             padding: 80px 5%;
             background: linear-gradient(180deg, var(--white) 0%, var(--pink-light) 100%);
@@ -209,10 +207,13 @@
             position: relative;
         }
 
-        .carousel-item img {
+        /* Garantiza que tanto las imágenes como el video tengan el mismo tamaño */
+        .carousel-item img, 
+        .carousel-item video {
             width: 100%;
             height: 500px;
             object-fit: cover;
+            display: block;
         }
 
         .carousel-caption {
@@ -224,6 +225,7 @@
             color: var(--white);
             padding: 30px;
             text-align: center;
+            z-index: 5;
         }
 
         .carousel-caption p {
@@ -355,7 +357,8 @@
             .hero-cursive {
                 font-size: 3rem;
             }
-            .carousel-item img {
+            .carousel-item img,
+            .carousel-item video {
                 height: 350px;
             }
             nav {
@@ -366,11 +369,9 @@
 </head>
 <body>
 
-    <!-- Header -->
     <header>
         <div class="logo-container">
-            <!-- Logo oficial incrustado desde la URL proporcionada -->
-            <img class="logo-img" src="https://i.ibb.co/Q0Q9WpG/IMG-20260714-WA0023.jpg" alt="Sueños Sobre Ruedas Logo">
+            <img class="logo-img" src="https://raw.githubusercontent.com/MrHOMERO/Patinarte/main/IMG-20260714-WA0023.jpg" alt="Sueños Sobre Ruedas Logo">
         </div>
         <nav>
             <a href="#inicio">Inicio</a>
@@ -380,7 +381,6 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero" id="inicio">
         <div class="hero-content">
             <span class="hero-cursive">Más que patinar,</span>
@@ -391,12 +391,10 @@
             <a href="https://wa.me/59899302548?text=¡Hola!%20Me%20gustaría%20saber%20más%20sobre%20las%20clases%20de%20patinaje%20artístico." target="_blank" class="btn-primary">¡Quiero Empezar!</a>
         </div>
         <div class="hero-image-wrapper">
-            <!-- Imagen ilustrativa en formato circular -->
-            <img src="https://raw.githubusercontent.com/MrHOMERO/Patinarte/3667babda30eebc047152ed22f57b0427de63c1b/IMG-20260714-WA0023.jpg" alt="Sueños Sobre Ruedas by Ana Paula">
+            <img src="https://raw.githubusercontent.com/MrHOMERO/Patinarte/main/IMG-20260714-WA0023.jpg" alt="Sueños Sobre Ruedas by Ana Paula">
         </div>
     </section>
 
-    <!-- Características (Extraídas de las descripciones) -->
     <section class="features" id="nosotros">
         <h2 class="section-title">Nuestros Pilares</h2>
         <div class="features-grid">
@@ -418,39 +416,38 @@
         </div>
     </section>
 
-    <!-- Carretel (Galería de Imágenes) -->
     <section class="gallery-section" id="galeria">
         <h2 class="section-title" style="text-align: center;">Donde los sueños ruedan</h2>
         <div class="carousel-container">
             <button class="carousel-btn prev-btn" onclick="moveSlide(-1)">&#10094;</button>
             <div class="carousel-slide" id="carouselSlide">
-                <!-- Carrusel Item 1 -->
+                
                 <div class="carousel-item">
-                    <img src="https://images.unsplash.com/photo-1542128962-9d50ad7bf744?auto=format&fit=crop&q=80&w=1000" alt="Clase de Patinaje">
+                    <video src="https://raw.githubusercontent.com/MrHOMERO/Patinarte/main/carrete.mp4" autoplay muted loop playsinline></video>
                     <div class="carousel-caption">
-                        <p>Aprendizaje, expresión y mucha diversión en pista</p>
+                        <p>Momentos de nuestras clases y entrenamientos en pista</p>
                     </div>
                 </div>
-                <!-- Carrusel Item 2 -->
+                
                 <div class="carousel-item">
-                    <img src="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?auto=format&fit=crop&q=80&w=1000" alt="Compañerismo">
+                    <img src="https://raw.githubusercontent.com/MrHOMERO/Patinarte/main/carrete1.jpg.jpg" alt="Clase de Patinaje 1">
+                    <div class="carousel-caption">
+                        <p>Aprendizaje, expresión y mucha diversión en cada paso</p>
+                    </div>
+                </div>
+                
+                <div class="carousel-item">
+                    <img src="https://raw.githubusercontent.com/MrHOMERO/Patinarte/main/carrete2.jpg.jpg" alt="Clase de Patinaje 2">
                     <div class="carousel-caption">
                         <p>El deporte ideal para hacer grandes amigas y amigos</p>
                     </div>
                 </div>
-                <!-- Carrusel Item 3 -->
-                <div class="carousel-item">
-                    <img src="https://images.unsplash.com/photo-1511556532299-8f662fc26c06?auto=format&fit=crop&q=80&w=1000" alt="Clases Niños">
-                    <div class="carousel-caption">
-                        <p>Clases adaptadas para todos los niveles y edades</p>
-                    </div>
-                </div>
+
             </div>
             <button class="carousel-btn next-btn" onclick="moveSlide(1)">&#10095;</button>
         </div>
     </section>
 
-    <!-- Información de Entrenamiento -->
     <section class="info-section" id="contacto">
         <h2 class="section-title">¿Dónde entrenamos?</h2>
         <div class="info-card">
@@ -461,7 +458,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="footer-socials">
             <a href="https://www.instagram.com/patin.arte.pdu/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
@@ -470,12 +466,10 @@
         <p>&copy; 2026 Sueños Sobre Ruedas. Diseñado con amor y pasión por el patín.</p>
     </footer>
 
-    <!-- Botón Flotante de WhatsApp -->
     <a href="https://wa.me/59899302548?text=¡Hola!%20Me%20interesa%20obtener%20más%20información%20sobre%20las%20clases%20de%20patinaje%20artístico." class="whatsapp-float" target="_blank">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
-    <!-- Lógica del Carretel (Slider) -->
     <script>
         let currentSlide = 0;
         const slides = document.querySelectorAll('.carousel-item');
@@ -487,7 +481,7 @@
             slideContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
         }
 
-        // Cambio automático cada 5 segundos
+        // Cambio automático de elemento cada 5 segundos
         setInterval(() => {
             moveSlide(1);
         }, 5000);
