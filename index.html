@@ -36,8 +36,8 @@
 
         /* --- Header --- */
         header {
-            background-color: rgba(255, 255, 255, 0.9);
-            padding: 15px 5%;
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 10px 5%;
             position: fixed;
             width: 100%;
             top: 0;
@@ -51,22 +51,12 @@
         .logo-container {
             display: flex;
             align-items: center;
-            gap: 10px;
         }
 
-        .logo-text {
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-            font-size: 1.5rem;
-            color: var(--text-dark);
-            line-height: 1.1;
-        }
-
-        .logo-subtext {
-            font-family: 'Alex Brush', cursive;
-            font-size: 1.4rem;
-            color: var(--pink-dark);
-            display: block;
+        .logo-img {
+            height: 65px; /* Tamaño ideal para que destaque sin romper el diseño */
+            width: auto;
+            object-fit: contain;
         }
 
         nav a {
@@ -149,7 +139,7 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
 
-        /* --- Características (Basadas en el Flyer e Instagram) --- */
+        /* --- Características --- */
         .features {
             padding: 80px 5%;
             background-color: var(--white);
@@ -354,7 +344,7 @@
             .hero {
                 flex-direction: column;
                 text-align: center;
-                padding-top: 120px;
+                padding-top: 140px;
             }
             .hero-content {
                 margin-bottom: 50px;
@@ -379,10 +369,8 @@
     <!-- Header -->
     <header>
         <div class="logo-container">
-            <div class="logo-text">
-                Sueños <span style="font-weight: 300;">Sobre Ruedas</span>
-                <span class="logo-subtext">by Ana Paula</span>
-            </div>
+            <!-- Logo oficial incrustado desde la URL proporcionada -->
+            <img class="logo-img" src="https://i.ibb.co/Q0Q9WpG/IMG-20260714-WA0023.jpg" alt="Sueños Sobre Ruedas Logo">
         </div>
         <nav>
             <a href="#inicio">Inicio</a>
@@ -403,8 +391,8 @@
             <a href="https://wa.me/59899302548?text=¡Hola!%20Me%20gustaría%20saber%20más%20sobre%20las%20clases%20de%20patinaje%20artístico." target="_blank" class="btn-primary">¡Quiero Empezar!</a>
         </div>
         <div class="hero-image-wrapper">
-            <!-- NOTA: Puedes cambiar esta imagen de muestra por una foto tuya del grupo de patín -->
-            <img src="https://images.unsplash.com/photo-1517130038641-a774d04afb3c?auto=format&fit=crop&q=80&w=600" alt="Patinaje Artístico">
+            <!-- Imagen ilustrativa en formato circular -->
+            <img src="https://raw.githubusercontent.com/MrHOMERO/Patinarte/3667babda30eebc047152ed22f57b0427de63c1b/IMG-20260714-WA0023.jpg" alt="Sueños Sobre Ruedas by Ana Paula">
         </div>
     </section>
 
@@ -482,7 +470,7 @@
         <p>&copy; 2026 Sueños Sobre Ruedas. Diseñado con amor y pasión por el patín.</p>
     </footer>
 
-    <!-- Botón Flotante de WhatsApp con tu número -->
+    <!-- Botón Flotante de WhatsApp -->
     <a href="https://wa.me/59899302548?text=¡Hola!%20Me%20interesa%20obtener%20más%20información%20sobre%20las%20clases%20de%20patinaje%20artístico." class="whatsapp-float" target="_blank">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
