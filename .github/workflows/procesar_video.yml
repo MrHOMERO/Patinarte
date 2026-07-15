@@ -1,7 +1,7 @@
 name: Procesar Video Patinarte
 
 on:
-  workflow_dispatch: # Esto activa el botón para iniciarlo manualmente
+  workflow_dispatch:
 
 jobs:
   build:
@@ -11,49 +11,45 @@ jobs:
     - name: Descargar repositorio
       uses: actions/checkout@v4
 
-    - name: Configurar Python
+    - name: Configurar Python en el servidor
       uses: actions/setup-python@v5
       with:
         python-version: '3.10'
 
-    - name: Instalar FFmpeg y MoviePy
+    - name: Instalar herramientas de video
       run: |
         sudo apt-get update
         sudo apt-get install -y ffmpeg
         pip install moviepy
 
-    - name: Crear Script de Edición
+    - name: Ejecutar edicion automatica
       run: |
-        cat << 'EOF' > editar.py
+        python -c '
         import os
         from moviepy.editor import VideoFileClip, ImageClip, concatenate_videoclips
 
-        # Nombres de tus archivos con la doble extensión .jpg.jpg como están en GitHub
         video_original = "Video_2026_07_14_22_37_06.mp4"
         img1_path = "carrete1.jpg.jpg"
         img2_path = "carrete2.jpg.jpg"
 
-        # Verificación de que GitHub Actions encuentra los archivos
-        for archivo in [video_original, img1_path, img2_path]:
-            if not os.path.exists(archivo):
-                raise FileNotFoundError(f"No se encontró el archivo en el repositorio: {archivo}")
-
-        # Duración en segundos para cada imagen en el carrete (puedes cambiarlo si quieres más o menos tiempo)
         duracion_foto = 1.5 
 
-        # Cargar recursos
+        # Cargamos el video original para saber su tamaño exacto (ancho y alto)
         video = VideoFileClip(video_original)
-        img1 = ImageClip(img1_path).set_duration(duracion_foto)
-        img2 = ImageClip(img2_path).set_duration(duracion_foto)
+        ancho, alto = video.size
 
-        # Dividimos el video de 22 segundos en bloques de 5 segundos
+        # Cargamos las imágenes y las forzamos a tener el tamaño del video original
+        # Esto evita que el editor falle por diferencia de formatos
+        img1 = ImageClip(img1_path).set_duration(duracion_foto).resize(newsize=(ancho, alto))
+        img2 = ImageClip(img2_path).set_duration(duracion_foto).resize(newsize=(ancho, alto))
+
+        # Dividimos el video en segmentos de 5 segundos
         clip_v1 = video.subclip(0, 5)
         clip_v2 = video.subclip(5, 10)
         clip_v3 = video.subclip(10, 15)
-        clip_v4 = video.subclip(15, 22) # Último segmento de 7 segundos para finalizar
+        clip_v4 = video.subclip(15, 22)
 
-        # Estructura intercalada:
-        # Video (5s) -> carrete1 -> carrete2 -> Video (5s) -> carrete1 -> carrete2 -> Video (5s) -> carrete1 -> carrete2 -> Video final (7s)
+        # Intercalamos el video con tus fotos
         secuencia = [
             clip_v1, img1, img2,
             clip_v2, img1, img2,
@@ -61,16 +57,12 @@ jobs:
             clip_v4
         ]
 
-        print("Intercalando clips y generando video final...")
+        # Combinamos todo en un único video
         video_final = concatenate_videoclips(secuencia, method="compose")
         video_final.write_videofile("resultado_final.mp4", fps=video.fps, codec="libx264", audio_codec="aac")
-        print("¡Proceso completado!")
-        EOF
+        '
 
-    - name: Ejecutar edición de video
-      run: python editar.py
-
-    - name: Guardar video final como resultado
+    - name: Guardar video final
       uses: actions/upload-artifact@v4
       with:
         name: video-patinarte-final
