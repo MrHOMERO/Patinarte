@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sueños Sobre Ruedas - Patinaje Artístico</title>
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Montserrat:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Font Awesome para Iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -140,7 +142,6 @@
             width: 100%;
         }
 
-        /* Silueta similar al flyer */
         .hero-image-wrapper img {
             width: 100%;
             border-radius: 50%;
@@ -148,7 +149,7 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
 
-        /* --- Características --- */
+        /* --- Características (Basadas en el Flyer e Instagram) --- */
         .features {
             padding: 80px 5%;
             background-color: var(--white);
@@ -307,3 +308,201 @@
             background-color: #25d366;
             color: white;
             width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background-color: #128c7e;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--text-dark);
+            color: var(--white);
+            padding: 40px 5%;
+            text-align: center;
+        }
+
+        .footer-socials {
+            margin-bottom: 20px;
+        }
+
+        .footer-socials a {
+            color: var(--white);
+            font-size: 1.5rem;
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+
+        .footer-socials a:hover {
+            color: var(--pink-primary);
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 120px;
+            }
+            .hero-content {
+                margin-bottom: 50px;
+            }
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            .hero-cursive {
+                font-size: 3rem;
+            }
+            .carousel-item img {
+                height: 350px;
+            }
+            nav {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo-container">
+            <div class="logo-text">
+                Sueños <span style="font-weight: 300;">Sobre Ruedas</span>
+                <span class="logo-subtext">by Ana Paula</span>
+            </div>
+        </div>
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#nosotros">Nosotros</a>
+            <a href="#galeria">Galería</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <span class="hero-cursive">Más que patinar,</span>
+            <h1 class="hero-title">es cumplir sueños</h1>
+            <p class="hero-p">
+                Patinaje artístico para todas las edades. Un espacio donde impulsamos la expresión, el aprendizaje y la diversión en cada deslizamiento.
+            </p>
+            <a href="https://wa.me/59899302548?text=¡Hola!%20Me%20gustaría%20saber%20más%20sobre%20las%20clases%20de%20patinaje%20artístico." target="_blank" class="btn-primary">¡Quiero Empezar!</a>
+        </div>
+        <div class="hero-image-wrapper">
+            <!-- NOTA: Puedes cambiar esta imagen de muestra por una foto tuya del grupo de patín -->
+            <img src="https://images.unsplash.com/photo-1517130038641-a774d04afb3c?auto=format&fit=crop&q=80&w=600" alt="Patinaje Artístico">
+        </div>
+    </section>
+
+    <!-- Características (Extraídas de las descripciones) -->
+    <section class="features" id="nosotros">
+        <h2 class="section-title">Nuestros Pilares</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <i class="fa-solid fa-heart"></i>
+                <h3>Confianza y Disciplina</h3>
+                <p>Fomentamos el crecimiento individual, superando retos personales sobre ruedas con constancia y alegría.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fa-solid fa-star"></i>
+                <h3>10 Años de Experiencia</h3>
+                <p>Una trayectoria consolidada en la enseñanza del patinaje artístico, acompañando cada paso de nuestros alumnos.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fa-solid fa-users"></i>
+                <h3>Amistad y Equipo</h3>
+                <p>Construimos un espacio cálido, basado en el respeto mutuo, el compañerismo y el trabajo colectivo.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Carretel (Galería de Imágenes) -->
+    <section class="gallery-section" id="galeria">
+        <h2 class="section-title" style="text-align: center;">Donde los sueños ruedan</h2>
+        <div class="carousel-container">
+            <button class="carousel-btn prev-btn" onclick="moveSlide(-1)">&#10094;</button>
+            <div class="carousel-slide" id="carouselSlide">
+                <!-- Carrusel Item 1 -->
+                <div class="carousel-item">
+                    <img src="https://images.unsplash.com/photo-1542128962-9d50ad7bf744?auto=format&fit=crop&q=80&w=1000" alt="Clase de Patinaje">
+                    <div class="carousel-caption">
+                        <p>Aprendizaje, expresión y mucha diversión en pista</p>
+                    </div>
+                </div>
+                <!-- Carrusel Item 2 -->
+                <div class="carousel-item">
+                    <img src="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?auto=format&fit=crop&q=80&w=1000" alt="Compañerismo">
+                    <div class="carousel-caption">
+                        <p>El deporte ideal para hacer grandes amigas y amigos</p>
+                    </div>
+                </div>
+                <!-- Carrusel Item 3 -->
+                <div class="carousel-item">
+                    <img src="https://images.unsplash.com/photo-1511556532299-8f662fc26c06?auto=format&fit=crop&q=80&w=1000" alt="Clases Niños">
+                    <div class="carousel-caption">
+                        <p>Clases adaptadas para todos los niveles y edades</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-btn next-btn" onclick="moveSlide(1)">&#10095;</button>
+        </div>
+    </section>
+
+    <!-- Información de Entrenamiento -->
+    <section class="info-section" id="contacto">
+        <h2 class="section-title">¿Dónde entrenamos?</h2>
+        <div class="info-card">
+            <i class="fa-solid fa-location-dot"></i>
+            <h3>Gymnasio Barrio Obreros</h3>
+            <p><strong>Ubicación:</strong> Paysandú, Uruguay</p>
+            <p>¡Te invitamos a sumarte a nuestra gran familia de patinadores y empezar a escribir tu propia historia sobre ruedas!</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-socials">
+            <a href="https://www.instagram.com/patin.arte.pdu/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.facebook.com/search/top?q=sue%C3%B1os%20sobre%20ruedas" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+        </div>
+        <p>&copy; 2026 Sueños Sobre Ruedas. Diseñado con amor y pasión por el patín.</p>
+    </footer>
+
+    <!-- Botón Flotante de WhatsApp con tu número -->
+    <a href="https://wa.me/59899302548?text=¡Hola!%20Me%20interesa%20obtener%20más%20información%20sobre%20las%20clases%20de%20patinaje%20artístico." class="whatsapp-float" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Lógica del Carretel (Slider) -->
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-item');
+        const slideContainer = document.getElementById('carouselSlide');
+        const totalSlides = slides.length;
+
+        function moveSlide(direction) {
+            currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+            slideContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        // Cambio automático cada 5 segundos
+        setInterval(() => {
+            moveSlide(1);
+        }, 5000);
+    </script>
+</body>
+</html>
